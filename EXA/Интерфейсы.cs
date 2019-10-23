@@ -14,26 +14,59 @@ namespace EXA
             d.Dispose();
             ((IDisposable)d).Dispose();
             Console.WriteLine();
-             b = new Derived();
+
+            b = new Derived();
             b.Dispose();
             ((IDisposable)b).Dispose();
+            ((Base)b).Dispose();
 
         }
     }
-     public class Base : IDisposable
+    public class Base : IDisposable
     {
-        public void Dispose()
+        public virtual void Dispose()
         {
-            Console.WriteLine("Base's dispose"); 
+            Console.WriteLine("Base's dispose");
         }
     }
-     public class Derived: Base, IDisposable
+    public class Derived : Base
     {
-        new public void Dispose()
+        public override void Dispose()
         {
             Console.WriteLine("Derived's dispose");
             //base.Dispose();
         }
     }
-
 }
+
+//343
+//using System;
+//namespace EXA
+//{
+//    public class Интерфейсы
+//    {
+//        static void Main()
+//        {
+//            var n = new Number();
+            
+//            IComparable<int> cInt32 = n;
+//            int result = cInt32.CompareTo(5);
+
+//            IComparable<string> cString = n;
+//            result = cString.CompareTo("5");
+//        }
+//    }
+
+//    public sealed class Number : IComparable<int>, IComparable<string>
+//    {
+//        private int m_val = 5;
+//        public int CompareTo(int n)
+//        {
+//            return m_val.CompareTo(n);
+//        }
+//        public int CompareTo(string s)
+//        {
+//            return m_val.CompareTo(s);
+//        }
+//    }
+//}
