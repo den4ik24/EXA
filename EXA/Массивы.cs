@@ -32,9 +32,9 @@ namespace EXA
             }
             Console.WriteLine();
 
-            for (int num = 0; num < numbers.Length; num++)
+            for (int numb = 0; numb < numbers.Length; numb++)
             {
-                Console.WriteLine(numbers[num]);
+                Console.WriteLine(numbers[numb]);
             }
         }
     }
