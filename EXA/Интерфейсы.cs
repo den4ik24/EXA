@@ -1,45 +1,45 @@
-﻿using System;
-namespace EXA
-{
-    public class Интерфейсы
-    {
-        static void Main()
-        {
-            var b = new Base();
-            b.Dispose();
-            ((IDisposable)b).Dispose();
-            Console.WriteLine("");
+﻿//using System;
+//namespace EXA
+//{
+//    public class Интерфейсы
+//    {
+//        static void Main()
+//        {
+//            var b = new Base();
+//            b.Dispose();
+//            ((IDisposable)b).Dispose();
+//            Console.WriteLine("");
 
-            var d = new Derived();
-            d.Dispose();
-            ((IDisposable)d).Dispose();
-            Console.WriteLine();
+//            var d = new Derived();
+//            d.Dispose();
+//            ((IDisposable)d).Dispose();
+//            Console.WriteLine();
 
-            b = new Derived();
-            b.Dispose();
-            ((IDisposable)b).Dispose();
-            ((Base)b).Dispose();
+//            b = new Derived();
+//            b.Dispose();
+//            ((IDisposable)b).Dispose();
+//            ((Base)b).Dispose();
 
-        }
-    }
-    public class Base : IDisposable
-    {
-        public virtual void Dispose()
-        {
-            Console.WriteLine("Base's dispose");
-        }
-    }
-    public class Derived : Base
-    {
-        public override void Dispose()
-        {
-            Console.WriteLine("Derived's dispose");
-            //base.Dispose();
-        }
-    }
-}
+//        }
+//    }
+//    public class Base : IDisposable
+//    {
+//        public virtual void Dispose()
+//        {
+//            Console.WriteLine("Base's dispose");
+//        }
+//    }
+//    public class Derived : Base
+//    {
+//        public override void Dispose()
+//        {
+//            Console.WriteLine("Derived's dispose");
+//            //base.Dispose();
+//        }
+//    }
+//}
 
-//343
+////343
 //using System;
 //namespace EXA
 //{
@@ -48,7 +48,7 @@ namespace EXA
 //        static void Main()
 //        {
 //            var n = new Number();
-            
+
 //            IComparable<int> cInt32 = n;
 //            int result = cInt32.CompareTo(5);
 

@@ -59,7 +59,6 @@
 //    {
 //        static void Main()
 //        {
-//            //var bed = new IBed();
 //            var bed = new Bed();
 //            GenMethod<IBed> genMethod = new GenMethod<IBed>
 //            {
