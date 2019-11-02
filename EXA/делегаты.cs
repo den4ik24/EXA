@@ -97,3 +97,60 @@
 //        }
 //    }
 //}
+
+
+//using System;
+
+//namespace EventExample
+//{
+//    class Program
+//    {
+//        static void Main()
+//        {
+//            ClassCounter Counter = new ClassCounter();
+//            Handler_I Handler1 = new Handler_I();
+//            Handler_II Handler2 = new Handler_II();
+
+//            Counter.OnCount += Handler1.Message;
+//            Counter.OnCount += Handler2.Message;
+//            //На событие OnCount подписывается обработчик Handler.Message
+//            Counter.Count();
+//        }
+//    }
+
+//    class ClassCounter
+//    {
+//        public delegate void MethodContainer();
+//        //делегат, хранящий в себе ссылку на метод
+//        public event MethodContainer OnCount;
+//        //событие связываем с делегатом, потом запускаем это событие
+
+//        public void Count()
+//        {
+//            for (int i = 0; i < 100; i++)
+//            {
+//                if (i == 71)
+//                {
+//                    //OnCount();
+//                    OnCount?.Invoke();
+//                }
+//            }
+//        }
+//    }
+
+//    class Handler_I
+//    {
+//        public void Message()
+//        {
+//            Console.WriteLine("Пора действовать, уже 71 !");
+//        }
+//    }
+
+//    class Handler_II
+//    {
+//        public void Message()
+//        {
+//            Console.WriteLine("Точно, пора.");
+//        }
+//    }
+//}

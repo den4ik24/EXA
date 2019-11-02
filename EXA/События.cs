@@ -1,121 +1,259 @@
-﻿////using System;
-////namespace EXA
+﻿//////using System;
+
+//////namespace ConsoleApplication1
+//////{
+//////    class Program
+//////    {
+//////        static void Main()
+//////        {
+//////            Counter c = new Counter(new Random().Next(10));
+//////            c.ThresholdReached += c_ThresholdReached;
+
+//////            Console.WriteLine("press 'a' key to increase total");
+//////            while (Console.ReadKey(true).KeyChar == 'a')
+//////            {
+//////                Console.WriteLine("adding one");
+//////                c.Add(1);
+//////            }
+//////        }
+
+//////        static void c_ThresholdReached(object sender, ThresholdReachedEventArgs e)
+//////        {
+//////            Console.WriteLine("The threshold of {0} was reached at {1}.", e.Threshold, e.TimeReached);
+//////            Environment.Exit(0);
+//////        }
+//////    }
+
+//////    class Counter
+//////    {
+//////        private int threshold;
+//////        private int total;
+
+//////        public Counter(int passedThreshold)
+//////        {
+//////            threshold = passedThreshold;
+//////        }
+
+//////        public void Add(int x)
+//////        {
+//////            total += x;
+//////            if (total >= threshold)
+//////            {
+//////                ThresholdReachedEventArgs args = new ThresholdReachedEventArgs();
+//////                args.Threshold = threshold;
+//////                args.TimeReached = DateTime.Now;
+//////                OnThresholdReached(args);
+//////            }
+//////        }
+
+//////        protected virtual void OnThresholdReached(ThresholdReachedEventArgs e)
+//////        {
+//////            ThresholdReached?.Invoke(this, e);
+//////        }
+
+//////        public event EventHandler<ThresholdReachedEventArgs> ThresholdReached;
+//////    }
+
+//////    public class ThresholdReachedEventArgs : EventArgs
+//////    {
+//////        public int Threshold { get; set; }
+//////        public DateTime TimeReached { get; set; }
+//////    }
+//////}
+
+////////using System;
+////////namespace EXA
+////////{
+////////    public class Примеры
+////////    {
+////////        static void Main()
+////////        {
+////////            Param(z: 3, x: 4, y: 5);
+////////            var o = new Object();
+
+////////            int P;
+////////            int x = 2;
+////////            int y = 3;
+////////            Ref(ref x, y, ref o);
+
+////////            Out(out x, y);
+
+////////            Person person = new Person() { Name = "AA", Surname = "BB" };
+
+////////           Person [] array = {
+////////                new Person { Name = "1" },
+////////                new Person { Name = "2" },
+////////                new Person { Name = "3" }
+////////            };
+////////            //анонимный тип
+////////            var Pofig = new {Name = "Pofig_Name", Surname = "Pofig_Surname" };
+////////            Console.WriteLine(Pofig.Surname);
+////////            dynamic user = new { Name = "Tom ", Age = 34 };
+////////            MyMethod(user);
+////////        }
+
+////////        public static int Param(int x, int y, int z = 2)
+////////        {
+////////            return (x + y) * z;
+////////        }
+
+////////        static void Ref(ref int x, int y, ref object o)
+////////        {
+////////            var p = new object();
+////////            x = x * y;
+////////            o = p;
+////////        }
+
+////////        static void Out(out int x, int y)
+////////        {
+////////            x = 3;
+////////            y += x;
+////////        }
+////////        public static void MyMethod(dynamic parameter)
+////////        {
+////////            Console.WriteLine(parameter.Name + "" + parameter.Age);
+////////        }
+////////    }
+
+////////    class Person
+////////    {
+////////        public string Name { get; set; }
+////////        public string Surname { get; set; }
+////////    }
+
+////////}
+////using System;
+
+////class Program
 ////{
-////    public class События
+////    private static void Main(string[] args)
 ////    {
-////        static void Main()
-////        {
-////            var counter = new Counter();
-////            var message = new Message();
+////        int x = 7;
+////        int y = 25;
+////        Swap<int>(ref x, ref y); // или так Swap(ref x, ref y);
+////        Console.WriteLine($"x={x}    y={y}");   // x=25   y=7
 
-////            counter.MyEvent1 += message.Method_Message_1;
-////            counter.MyEvent2 += message.Method_Message_2;
+////        string s1 = "hello";
+////        string s2 = "bye";
+////        Swap<string>(ref s1, ref s2); // или так Swap(ref s1, ref s2);
+////        Console.WriteLine($"s1={s1}    s2={s2}"); // s1=bye   s2=hello
 
-////            counter.Count();
-////        }
-
+////        Console.Read();
 ////    }
-
-////    class Counter
+////    public static void Swap<T>(ref T x, ref T y)
 ////    {
-////        public event EventHandler<EventArgs> MyEvent1;
-////        public event EventHandler<EventArgs> MyEvent2;
-////        public void Count()
-////        {
-////            for (int i = 0; i < 100; i++)
-////            {
-////                if (i == 66)
-////                {
-////                    var args = new EventArgs();
-////                    OnMyInvoke1(args);
-////                }
-
-////                if (i == 88)
-////                {
-////                    var args = new EventArgs();
-////                    OnMyInvoke2(args);
-////                }
-////            }
-////        }
-
-////        protected virtual void OnMyInvoke1(EventArgs e)
-////        {
-////            MyEvent1?.Invoke(this, e);
-////        }
-
-////        protected virtual void OnMyInvoke2(EventArgs e)
-////        {
-////            MyEvent2?.Invoke(this, e);
-////        }
-////    }
-
-////    class Message
-////    {
-////        public void Method_Message_1(object sender, EventArgs e)
-////        {
-////            Console.WriteLine("Чего там, уже пора?");
-////        }
-
-////        public void Method_Message_2(object sender, EventArgs e)
-////        {
-////            Console.WriteLine("Капец, чо так долго ?");
-////        }
+////        T temp = x;
+////        x = y;
+////        y = temp;
 ////    }
 ////}
 
-
 //using System;
+//using static ConsoleApplication1.Program;
 
-//namespace EventExample
+//namespace ConsoleApplication1
 //{
 //    class Program
 //    {
 //        static void Main()
 //        {
-//            ClassCounter Counter = new ClassCounter();
-//            Handler_I Handler1 = new Handler_I();
-//            Handler_II Handler2 = new Handler_II();
 
-//            Counter.OnCount += Handler1.Message;
-//            Counter.OnCount += Handler2.Message;
-//            //На событие OnCount подписывается обработчик Handler.Message
-//            Counter.Count();
+//            A a = new A();
+//            A aa = new A();
+//            B b = new B();
+//            //b = (B)a;
+//            //a = (A)b;
+//            var t = (II)b;
+//            Console.WriteLine(t);
+//            a.SetF();
+
+//            var result = aa.GetF();
+//            Console.WriteLine(result);
+//            StCl.St(a);
+//            int w = a.St();
+
+//        }
+
+//        public struct B:II
+//        {
+
+//        }
+
+//        public interface II
+//        {
+
 //        }
 //    }
 
-//    class ClassCounter
+//    public static class StCl
 //    {
-//        public delegate void MethodContainer();
-//        //делегат, хранящий в себе ссылку на метод
-//        public event MethodContainer OnCount;
-//        //событие связываем с делегатом, потом запускаем это событие
-
-//        public void Count()
+//        public static int St(this A a)
 //        {
-//            for (int i = 0; i < 100; i++)
-//            {
-//                if (i == 71)
-//                {
-//                    //OnCount();
-//                    OnCount?.Invoke();
-//                }
-//            }
+//            return 5;
 //        }
 //    }
 
-//    class Handler_I
+//    public class A
 //    {
-//        public void Message()
-//        {
-//            Console.WriteLine("Пора действовать, уже 71 !");
-//        }
-//    }
+//        //public static explicit operator A(B v)
+//        //{
+//        //    throw new NotImplementedException();
+//        //}
+//        public static int F;
 
-//    class Handler_II
-//    {
-//        public void Message()
+
+//        public void SetF()
 //        {
-//            Console.WriteLine("Точно, пора.");
+//            F = 5;
+//        }
+
+//        public int GetF()
+//        {
+//            return F;
+//        }
+
+//    }
+//}
+
+
+//using System.Linq;
+//using static ConsoleApplication1.Program;
+
+//namespace ConsoleApplication1
+//{
+//    class Program
+//    {
+//        static void Main()
+//        {
+//            var Driver1 = new User
+//            { Name = "Name1", Surname = "Surname1", Age = 33, CarID = "ID2" };
+//            var Mers = new Car { Id = "ID", Color = "Red" };
+
+//            var drivers = new[]{ Driver1,
+//                new User{ Name = "Name2", Surname = "Surname2", Age = 34, CarID = "ID7" },
+//                new User{ Name = "Name3", Surname = "Surname3", Age = 35, CarID = "1qw" }};
+
+
+//            var cars = new []{Mers,
+//                new Car { Id = "ID2", Color = "GREEN" },
+//                new Car { Id = "ID3", Color = "BLUE" } };
+
+//            cars.Where()
+//        }
+
+//        class User
+//        {
+//            public string Name { get; set; }
+//            public string Surname { get; set; }
+//            public int Age { get; set; }
+//            public string CarID { get; set; }
+
+//        }
+
+//        class Car
+//        {
+//            public string Id { get; set; }
+//            public string Color { get; set; }
 //        }
 //    }
 //}
