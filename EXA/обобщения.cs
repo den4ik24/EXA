@@ -64,15 +64,15 @@
 //            {
 //               //Sleep = genMethod
 //            };
-            
+
 //            genMethod.Go(bed);
-            
+
 //        }
 //    }
 
 //    class Bed : IBed
 //    {
-        
+
 //        public void TimeToSleep()
 //        {
 //            Console.WriteLine("Спатки пора");
@@ -82,12 +82,12 @@
 //    public interface IBed
 //    {
 //        void TimeToSleep();
-       
+
 //    }
 
 //    class GenMethod<T> where T : IBed
 //    {
-       
+
 //        //public T Sleep;
 //        //public T1 Go<T1>(T1 a)
 //        //{
@@ -97,6 +97,70 @@
 //        {
 //            Console.WriteLine("Спи давай");
 //            //Sleep.TimeToSleep();
+//        }
+//    }
+//}
+
+
+//using System;
+//namespace EXA
+//{
+//    public class обобщения
+//    {
+//        static void Main()
+//        {
+//            AccountFourth<Str> accountStr = new AccountFourth<Str> { };
+//            //Type1<TP> tp1 = new Type1<TP>
+//            //{
+
+//            //};
+
+//            ////1
+//            //Account<string> accountSTRING = new Account<string>();
+//            //Account<string> first1 = new AccountFirst<string>();
+//            //AccountFirst<string> first2 = new AccountFirst<string>();
+//            ////2
+//            //AccountSecond accountSecond = new AccountSecond();
+//            //Account<string> accountString = new AccountSecond();
+//            ////3
+//            //AccountThird<string> accountThird = new AccountThird<string>();
+//            //Account<int> accountInt = new AccountThird<long>();
+//        }
+
+//        //class TP
+//        //{
+//        //}
+
+//        //class Type1<T> where T : TP
+//        //{
+//        //}
+
+//        //class Type2<T>: Type1<T> where T : TP
+//        //{
+//        //}
+
+//        //class Type3<T>: TP
+//        //{
+//        //}
+//        class Str
+//        {
+//            public Str()
+//            {
+                
+//            }
+//        }
+
+//        class Account<T> { }
+
+//        class AccountFirst<T> : Account<T> { }
+
+//        class AccountSecond : Account<string> { }
+
+//        class AccountThird<T> : Account<int> { }
+
+//        class AccountFourth<T> where T : new()
+//        {
+
 //        }
 //    }
 //}

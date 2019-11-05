@@ -72,44 +72,54 @@
 //}
 
 
-//using System;
-//namespace EXA
-//{
-//    public class Интерфейсы
-//    {
-//        static void Main()
-//        {
-//            Slave slave = new Slave();
-//           // slave.P
-//            IMaster master = slave;
-//            master.Power();
-            
-//        }
+using System;
+namespace EXA
+{
+    public class Интерфейсы
+    {
+        static void Main()
+        {
+            Slave slave = new Slave();
+            // slave.P
+            IMaster master = slave;
+            master.Power();
+            //master.Freedom();
+            ((IMaster)slave).Freedom();
+        }
 
-//    }
+    }
 
-//    public interface IMaster
-//    {
-//        public void Power();
-        
-//    }
-     
-//    public class Slave : IMaster
-//    {
-//        //public void Power()
-//        // {
-//        //     Console.WriteLine("I am a power");
-//        //}
+    public interface IMaster
+    {
+        public void Power();
+        public void Freedom()
+        {
+            Console.WriteLine("A-A-A-A-a");
+        }
+    }
 
-//        //явная релизация интерфейсного метода
-//        //(Explicit Interface Method Implementation, EIMI
-//        //при явной реализации интерфейсного метода в C#
-//        //нельзя указывать уровень доступа (открытый или закрытый)
+    public class Slave : IMaster
+    {
+        //public void Power()
+        // {
+        //     Console.WriteLine("I am a power");
+        //}
 
-//        void IMaster.Power()
-//        {
-//            Console.WriteLine("-.-");
-//        }
-//    }
+        //явная релизация интерфейсного метода
+        //(Explicit Interface Method Implementation, EIMI
+        //при явной реализации интерфейсного метода в C#
+        //нельзя указывать уровень доступа (открытый или закрытый)
 
-//}
+        void IMaster.Power()
+        {
+            Console.WriteLine("-.-");
+        }
+
+        void IMaster.Freedom()
+        {
+            Console.WriteLine("FREEDOM !");
+        }
+
+    }
+
+}

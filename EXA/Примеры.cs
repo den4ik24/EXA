@@ -148,74 +148,6 @@
 ////    }
 ////}
 
-//using System;
-//using static ConsoleApplication1.Program;
-
-//namespace ConsoleApplication1
-//{
-//    class Program
-//    {
-//        static void Main()
-//        {
-
-//            A a = new A();
-//            A aa = new A();
-//            B b = new B();
-//            //b = (B)a;
-//            //a = (A)b;
-//            var t = (II)b;
-//            Console.WriteLine(t);
-//            a.SetF();
-
-//            var result = aa.GetF();
-//            Console.WriteLine(result);
-//            StCl.St(a);
-//            int w = a.St();
-//            Console.WriteLine(w);
-
-//        }
-
-//        public struct B : II
-//        {
-
-//        }
-
-//        public interface II
-//        {
-
-//        }
-//    }
-
-//    public static class StCl
-//    {
-//        public static int St(this A n)
-//        {
-//            //Console.WriteLine(a.ToString());
-//            return 5;
-//        }
-//    }
-
-//    public class A
-//    {
-//        //public static explicit operator A(B v)
-//        //{
-//        //    throw new NotImplementedException();
-//        //}
-//        public static int F;
-
-
-//        public void SetF()
-//        {
-//            F = 5;
-//        }
-
-//        public int GetF()
-//        {
-//            return F;
-//        }
-
-//    }
-//}
 
 //using System;
 //namespace ExtensionMethods
@@ -293,55 +225,56 @@
 //    }
 //}
 
-using System;
-using System.Linq;
+//using System;
+//using System.Linq;
 
-namespace ConsoleApplication1
-{
-    class Program
-    {
-        static void Main()
-        {
-            var Driver1 = new User
-            { Name = "Name1", Surname = "Surname1", Age = 33, CarID = "ID2" };
+//namespace ConsoleApplication1
+//{
+//    class Program
+//    {
+//        static void Main()
+//        {
+//            var Driver1 = new User
+//            { Name = "Name1", Surname = "Surname1", Age = 33, CarID = "ID2" };
 
-            var Mers = new Car { Id = "ID", Color = "Red" };
+//            var Mers = new Car { Id = "ID", Color = "Red" };
 
-            var drivers = new[]{ Driver1,
-                new User{ Name = "Name2", Surname = "Surname2", Age = 34, CarID = "ID7" },
-                new User{ Name = "Name3", Surname = "Surname3", Age = 35, CarID = "1qw" }};
+//            var drivers = new[]{ Driver1,
+//                new User{ Name = "Name2", Surname = "Surname2", Age = 34, CarID = "ID7" },
+//                new User{ Name = "Name3", Surname = "Surname3", Age = 35, CarID = "1qw" }};
 
 
-            var cars = new[]{Mers,
-                new Car { Id = "ID2", Color = "GREEN" },
-                new Car { Id = "ID3", Color = "BLUE" } };
+//            var cars = new[]{Mers,
+//                new Car { Id = "ID2", Color = "GREEN" },
+//                new Car { Id = "ID3", Color = "BLUE" } };
 
-            var selectCar = cars.Where(c => c.Id.Equals(Driver1.CarID));
-            var select2car = cars.Join(drivers, c => c.Id, u => u.CarID, (c, u) => new { Driver = u.Name, c.Color });
-            var f = select2car.FirstOrDefault();
-            Console.WriteLine(f.Color + f.Driver);
-            //var SC = selectCar.FirstOrDefault();
-            //Console.WriteLine(SC);
+//            var selectCar = cars.Where(c => c.Id.Equals(Driver1.CarID));
+//            var select2car = cars.Join(drivers, c => c.Id, u => u.CarID, (c, u) => new { Driver = u.Name, c.Color });
+//            var f = select2car.FirstOrDefault();
+//            Console.WriteLine(f.Color + f.Driver);
 
-        }
+//            var SC = selectCar.FirstOrDefault();
+//            Console.WriteLine(SC);
 
-        class User
-        {
-            public string Name { get; set; }
-            public string Surname { get; set; }
-            public int Age { get; set; }
-            public string CarID { get; set; }
+//        }
 
-        }
+//        class User
+//        {
+//            public string Name { get; set; }
+//            public string Surname { get; set; }
+//            public int Age { get; set; }
+//            public string CarID { get; set; }
 
-        class Car
-        {
-            public string Id { get; set; }
-            public string Color { get; set; }
-            public override string ToString()
-            {
-                return Id;
-            }
-        }
-    }
-}
+//        }
+
+//        class Car
+//        {
+//            public string Id { get; set; }
+//            public string Color { get; set; }
+//            public override string ToString()
+//            {
+//                return Id;
+//            }
+//        }
+//    }
+//}
