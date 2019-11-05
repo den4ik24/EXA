@@ -185,7 +185,7 @@
 //    {
 //        static void Main()
 //        {
-            
+
 //            Func<int, int> retFunc = Factorial;
 //            int n1 = GetInt(6, retFunc);
 //            Console.WriteLine(n1);
@@ -206,7 +206,7 @@
 //        //аналог с Func
 //        static int GetInt(int x1, Func<int,int> retF)
 //        {
-            
+
 //            int result = 0;
 //            if (x1 > 0)
 //                result = retF(x1);
@@ -278,3 +278,32 @@
 //        }
 //    }
 //}
+
+
+using System;
+
+namespace ConsoleApplication1
+{
+    class Program
+    {
+        static void Main()
+        {
+            Console.WriteLine("Enter the first number");
+            int x = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine($"First number is {x}");
+            Console.WriteLine("Enter the second number");
+            int y = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine($"Second number is {y}");
+            Console.WriteLine();
+            Max(x, y);
+            
+        }
+        public static void Max(int x, int y)
+        {
+            int z;
+            z = (x < y)? y: x;
+            Console.WriteLine($"The biggest number is {z}");
+            
+        }
+    }
+}
