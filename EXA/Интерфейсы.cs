@@ -72,54 +72,54 @@
 //}
 
 
-using System;
-namespace EXA
-{
-    public class Интерфейсы
-    {
-        static void Main()
-        {
-            Slave slave = new Slave();
-            // slave.P
-            IMaster master = slave;
-            master.Power();
-            //master.Freedom();
-            ((IMaster)slave).Freedom();
-        }
+//using System;
+//namespace EXA
+//{
+//    public class Интерфейсы
+//    {
+//        static void Main()
+//        {
+//            Slave slave = new Slave();
+//            // slave.P
+//            IMaster master = slave;
+//            master.Power();
+//            //master.Freedom();
+//            ((IMaster)slave).Freedom();
+//        }
 
-    }
+//    }
 
-    public interface IMaster
-    {
-        public void Power();
-        public void Freedom()
-        {
-            Console.WriteLine("A-A-A-A-a");
-        }
-    }
+//    public interface IMaster
+//    {
+//        public void Power();
+//        public void Freedom()
+//        {
+//            Console.WriteLine("A-A-A-A-a");
+//        }
+//    }
 
-    public class Slave : IMaster
-    {
-        //public void Power()
-        // {
-        //     Console.WriteLine("I am a power");
-        //}
+//    public class Slave : IMaster
+//    {
+//        //public void Power()
+//        // {
+//        //     Console.WriteLine("I am a power");
+//        //}
 
-        //явная релизация интерфейсного метода
-        //(Explicit Interface Method Implementation, EIMI
-        //при явной реализации интерфейсного метода в C#
-        //нельзя указывать уровень доступа (открытый или закрытый)
+//        //явная релизация интерфейсного метода
+//        //(Explicit Interface Method Implementation, EIMI
+//        //при явной реализации интерфейсного метода в C#
+//        //нельзя указывать уровень доступа (открытый или закрытый)
 
-        void IMaster.Power()
-        {
-            Console.WriteLine("-.-");
-        }
+//        void IMaster.Power()
+//        {
+//            Console.WriteLine("-.-");
+//        }
 
-        void IMaster.Freedom()
-        {
-            Console.WriteLine("FREEDOM !");
-        }
+//        void IMaster.Freedom()
+//        {
+//            Console.WriteLine("FREEDOM !");
+//        }
 
-    }
+//    }
 
-}
+//}
