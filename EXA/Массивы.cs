@@ -103,65 +103,70 @@
 //}
 
 
-using System;
-using System.Collections;
-using System.Collections.Generic;
+//using System;
+//using System.Collections;
+//using System.Collections.Generic;
 
-namespace EXA
-{
-    public class Массивы
-    {
-        static void Main()
-        {
-            //int[] array = { 1, 2, 3, 4, 5 };
-            //Console.WriteLine(array[2]);
+//namespace EXA
+//{
+//    public class Массивы
+//    {
+//        static void Main()
+//        {
+//            //int[] array = { 1, 2, 3, 4, 5 };
+//            //Console.WriteLine(array[2]);
 
-            //int[,] array2D = { { 1, 2, 3, 4, 5 }, { 6, 7, 8, 9, 0 } };
-            //Console.WriteLine(array2D[0,3]);
+//            //int[,] array2D = { { 1, 2, 3, 4, 5 }, { 6, 7, 8, 9, 0 } };
+//            //Console.WriteLine(array2D[0,3]);
 
-            //int[,,] array3D = { { { 1, 2, 3 }, { 4, 5, 6 } }, { { 7, 8, 9 }, { 10, 11, 12 } } };
-            //Console.WriteLine(array3D[0,1,1]);
+//            //int[,,] array3D = { { { 1, 2, 3 }, { 4, 5, 6 } }, { { 7, 8, 9 }, { 10, 11, 12 } } };
+//            //Console.WriteLine(array3D[0,1,1]);
 
-            var week = new Week();
-            foreach(var day in week)
-            {
-                Console.WriteLine(day);
-            }
-        }
-    }
+//            var week = new Week();
+//            foreach(var day in week)
+//            {
+//                Console.WriteLine(day);
+//            }
 
-    class Week : IEnumerator, IEnumerable
-    {
-        string[] days = {"Monday", "Tuesday", "Wednesday", "Thursday",
-                         "Friday", "Saturday", "Sunday"};
-        int position = -1;
+//            foreach(var day in week)
+//            {
+//                Console.WriteLine(day);
+//            }
+//        }
+//    }
 
-        public IEnumerator GetEnumerator()
-        {
-            return this;
-        }
+//    class Week : IEnumerable, IEnumerator
+//    {
+//        string[] days = {"Monday", "Tuesday", "Wednesday", "Thursday",
+//                         "Friday", "Saturday", "Sunday"};
+//        int position = -1;
 
-        public object Current
-        {
-            get
-            {
+//        public IEnumerator GetEnumerator()
+//        {
+//            return this;
+//        }
+
+//        public object Current
+//        {
+//            get
+//            {
                 
-                return days[position];
-            }
-        }
-        public bool MoveNext()
-        {
-            if (position == days.Length - 1)
-            {
-                Reset();
-                return false;
-            }
-            position++;
-            return true;
-        }
-        public void Reset()
-        {
-            position = - 1;
-        }
-    }
-}
+//                return days[position];
+//            }
+//        }
+//        public bool MoveNext()
+//        {
+//            if (position == days.Length - 1)
+//            {
+//                //Reset();
+//                return false;
+//            }
+//            position++;
+//            return true;
+//        }
+//        public void Reset()
+//        {
+//            position = - 1;
+//        }
+//    }
+//}

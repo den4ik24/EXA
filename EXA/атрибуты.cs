@@ -25,6 +25,7 @@
 //            Console.WriteLine($"Bolonka - {BolonkaIsValid}");
 //            Console.WriteLine($"Pitbull - {PitIsValid}");
 //        }
+
 //        static bool ValidateUser(User user)
 //        {
 //            Type t = typeof(User);
@@ -39,7 +40,7 @@
 
 //        static bool ValidDog(Dog dog)
 //        {
-            
+
 //            //Type type = typeof(Dog);
 //            object[] obj = dog.GetType().GetCustomAttributes(true);
 //            foreach (AgeValidation2Attribute atr in obj)
