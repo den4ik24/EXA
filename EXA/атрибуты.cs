@@ -39,15 +39,16 @@
 
 //        static bool ValidDog(Dog dog)
 //        {
-//            Type type = typeof(Dog);
-//            object[] obj = type.GetCustomAttributes(true);
+            
+//            //Type type = typeof(Dog);
+//            object[] obj = dog.GetType().GetCustomAttributes(true);
 //            foreach (AgeValidation2Attribute atr in obj)
 //            {
 //                if (dog.Age >= atr.Age) return true;
 //                return false;
 //            }
 //            return true;
-//        } 
+//        }
 //    }
 //    public class AgeValidation2Attribute : Attribute
 //    {

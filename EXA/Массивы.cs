@@ -1,220 +1,64 @@
-﻿//////using System;
-
-//////namespace ConsoleApplication1
-//////{
-//////    class Program
-//////    {
-//////        static void Main()
-//////        {
-//////            Counter c = new Counter(new Random().Next(10));
-//////            c.ThresholdReached += c_ThresholdReached;
-
-//////            Console.WriteLine("press 'a' key to increase total");
-//////            while (Console.ReadKey(true).KeyChar == 'a')
-//////            {
-//////                Console.WriteLine("adding one");
-//////                c.Add(1);
-//////            }
-//////        }
-
-//////        static void c_ThresholdReached(object sender, ThresholdReachedEventArgs e)
-//////        {
-//////            Console.WriteLine("The threshold of {0} was reached at {1}.", e.Threshold, e.TimeReached);
-//////            Environment.Exit(0);
-//////        }
-//////    }
-
-//////    class Counter
-//////    {
-//////        private int threshold;
-//////        private int total;
-
-//////        public Counter(int passedThreshold)
-//////        {
-//////            threshold = passedThreshold;
-//////        }
-
-//////        public void Add(int x)
-//////        {
-//////            total += x;
-//////            if (total >= threshold)
-//////            {
-//////                ThresholdReachedEventArgs args = new ThresholdReachedEventArgs();
-//////                args.Threshold = threshold;
-//////                args.TimeReached = DateTime.Now;
-//////                OnThresholdReached(args);
-//////            }
-//////        }
-
-//////        protected virtual void OnThresholdReached(ThresholdReachedEventArgs e)
-//////        {
-//////            ThresholdReached?.Invoke(this, e);
-//////        }
-
-//////        public event EventHandler<ThresholdReachedEventArgs> ThresholdReached;
-//////    }
-
-//////    public class ThresholdReachedEventArgs : EventArgs
-//////    {
-//////        public int Threshold { get; set; }
-//////        public DateTime TimeReached { get; set; }
-//////    }
-//////}
-
-////////using System;
-////////namespace EXA
-////////{
-////////    public class Примеры
-////////    {
-////////        static void Main()
-////////        {
-////////            Param(z: 3, x: 4, y: 5);
-////////            var o = new Object();
-
-////////            int P;
-////////            int x = 2;
-////////            int y = 3;
-////////            Ref(ref x, y, ref o);
-
-////////            Out(out x, y);
-
-////////            Person person = new Person() { Name = "AA", Surname = "BB" };
-
-////////           Person [] array = {
-////////                new Person { Name = "1" },
-////////                new Person { Name = "2" },
-////////                new Person { Name = "3" }
-////////            };
-////////            //анонимный тип
-////////            var Pofig = new {Name = "Pofig_Name", Surname = "Pofig_Surname" };
-////////            Console.WriteLine(Pofig.Surname);
-////////            dynamic user = new { Name = "Tom ", Age = 34 };
-////////            MyMethod(user);
-////////        }
-
-////////        public static int Param(int x, int y, int z = 2)
-////////        {
-////////            return (x + y) * z;
-////////        }
-
-////////        static void Ref(ref int x, int y, ref object o)
-////////        {
-////////            var p = new object();
-////////            x = x * y;
-////////            o = p;
-////////        }
-
-////////        static void Out(out int x, int y)
-////////        {
-////////            x = 3;
-////////            y += x;
-////////        }
-////////        public static void MyMethod(dynamic parameter)
-////////        {
-////////            Console.WriteLine(parameter.Name + "" + parameter.Age);
-////////        }
-////////    }
-
-////////    class Person
-////////    {
-////////        public string Name { get; set; }
-////////        public string Surname { get; set; }
-////////    }
-
-////////}
-////using System;
-
-////class Program
-////{
-////    private static void Main(string[] args)
-////    {
-////        int x = 7;
-////        int y = 25;
-////        Swap<int>(ref x, ref y); // или так Swap(ref x, ref y);
-////        Console.WriteLine($"x={x}    y={y}");   // x=25   y=7
-
-////        string s1 = "hello";
-////        string s2 = "bye";
-////        Swap<string>(ref s1, ref s2); // или так Swap(ref s1, ref s2);
-////        Console.WriteLine($"s1={s1}    s2={s2}"); // s1=bye   s2=hello
-
-////        Console.Read();
-////    }
-////    public static void Swap<T>(ref T x, ref T y)
-////    {
-////        T temp = x;
-////        x = y;
-////        y = temp;
-////    }
-////}
-
-//using System;
-//using static ConsoleApplication1.Program;
-
-//namespace ConsoleApplication1
+﻿//using System;
+//namespace EXA
 //{
-//    class Program
+//    public class Массивы
 //    {
 //        static void Main()
 //        {
+//            Param(z: 3, x: 4, y: 5);
+//            var o = new Object();
 
-//            A a = new A();
-//            A aa = new A();
-//            B b = new B();
-//            //b = (B)a;
-//            //a = (A)b;
-//            var t = (II)b;
-//            Console.WriteLine(t);
-//            a.SetF();
+//            int P;
+//            int x = 2;
+//            int y = 3;
+//            Ref(ref x, y, ref o);
 
-//            var result = aa.GetF();
-//            Console.WriteLine(result);
-//            StCl.St(a);
-//            int w = a.St();
+//            Out(out x, y);
 
+//            Person person = new Person() { Name = "AA", Surname = "BB" };
+
+//            Person[] array = {
+//                new Person { Name = "1" },
+//                new Person { Name = "2" },
+//                new Person { Name = "3" }
+//            };
+//            //анонимный тип
+//            var Pofig = new { Name = "Pofig_Name", Surname = "Pofig_Surname" };
+//            Console.WriteLine(Pofig.Surname);
+//            dynamic user = new { Name = "Tom ", Age = 34 };
+//            MyMethod(user);
 //        }
 
-//        public struct B:II
+//        public static int Param(int x, int y, int z = 2)
 //        {
-
+//            return (x + y) * z;
 //        }
 
-//        public interface II
+//        static void Ref(ref int x, int y, ref object o)
 //        {
+//            var p = new object();
+//            x = x * y;
+//            o = p;
+//        }
 
+//        static void Out(out int x, int y)
+//        {
+//            x = 3;
+//            y += x;
+//        }
+//        public static void MyMethod(dynamic parameter)
+//        {
+//            Console.WriteLine(parameter.Name + "" + parameter.Age);
 //        }
 //    }
 
-//    public static class StCl
+//    class Person
 //    {
-//        public static int St(this A a)
-//        {
-//            return 5;
-//        }
+//        public string Name { get; set; }
+//        public string Surname { get; set; }
 //    }
 
-//    public class A
-//    {
-//        //public static explicit operator A(B v)
-//        //{
-//        //    throw new NotImplementedException();
-//        //}
-//        public static int F;
-
-
-//        public void SetF()
-//        {
-//            F = 5;
-//        }
-
-//        public int GetF()
-//        {
-//            return F;
-//        }
-
-//    }
 //}
-
 
 //using System.Linq;
 //using static ConsoleApplication1.Program;
@@ -257,3 +101,41 @@
 //        }
 //    }
 //}
+
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+
+namespace EXA
+{
+    public class Массивы
+    {
+        static void Main()
+        {
+            //int[] array = { 1, 2, 3, 4, 5 };
+            //Console.WriteLine(array[2]);
+
+            //int[,] array2D = { { 1, 2, 3, 4, 5 }, { 6, 7, 8, 9, 0 } };
+            //Console.WriteLine(array2D[0,3]);
+
+            //int[,,] array3D = { { { 1, 2, 3 }, { 4, 5, 6 } }, { { 7, 8, 9 }, { 10, 11, 12 } } };
+            //Console.WriteLine(array3D[0,1,1]);
+
+            var week = new Week();
+            foreach(var day in week)
+            {
+                Console.WriteLine(day);
+            }
+        }
+    }
+    class Week : IEnumerable
+    {
+        string[] days = {"Monday", "Tuesday", "Wednesday", "Thursday",
+                         "Friday", "Saturday", "Sunday"};
+        public IEnumerator GetEnumerator()
+        {
+            return days.GetEnumerator();
+        }
+    }
+}

@@ -1,67 +1,4 @@
-﻿//////using System;
-
-//////namespace ConsoleApplication1
-//////{
-//////    class Program
-//////    {
-//////        static void Main()
-//////        {
-//////            Counter c = new Counter(new Random().Next(10));
-//////            c.ThresholdReached += c_ThresholdReached;
-
-//////            Console.WriteLine("press 'a' key to increase total");
-//////            while (Console.ReadKey(true).KeyChar == 'a')
-//////            {
-//////                Console.WriteLine("adding one");
-//////                c.Add(1);
-//////            }
-//////        }
-
-//////        static void c_ThresholdReached(object sender, ThresholdReachedEventArgs e)
-//////        {
-//////            Console.WriteLine("The threshold of {0} was reached at {1}.", e.Threshold, e.TimeReached);
-//////            Environment.Exit(0);
-//////        }
-//////    }
-
-//////    class Counter
-//////    {
-//////        private int threshold;
-//////        private int total;
-
-//////        public Counter(int passedThreshold)
-//////        {
-//////            threshold = passedThreshold;
-//////        }
-
-//////        public void Add(int x)
-//////        {
-//////            total += x;
-//////            if (total >= threshold)
-//////            {
-//////                ThresholdReachedEventArgs args = new ThresholdReachedEventArgs();
-//////                args.Threshold = threshold;
-//////                args.TimeReached = DateTime.Now;
-//////                OnThresholdReached(args);
-//////            }
-//////        }
-
-//////        protected virtual void OnThresholdReached(ThresholdReachedEventArgs e)
-//////        {
-//////            ThresholdReached?.Invoke(this, e);
-//////        }
-
-//////        public event EventHandler<ThresholdReachedEventArgs> ThresholdReached;
-//////    }
-
-//////    public class ThresholdReachedEventArgs : EventArgs
-//////    {
-//////        public int Threshold { get; set; }
-//////        public DateTime TimeReached { get; set; }
-//////    }
-//////}
-
-////////using System;
+﻿////////using System;
 ////////namespace EXA
 ////////{
 ////////    public class Примеры
@@ -280,30 +217,57 @@
 //}
 
 
-using System;
+//using System;
+//using System.Drawing;
 
-namespace ConsoleApplication1
-{
-    class Program
-    {
-        static void Main()
-        {
-            Console.WriteLine("Enter the first number");
-            int x = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine($"First number is {x}");
-            Console.WriteLine("Enter the second number");
-            int y = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine($"Second number is {y}");
-            Console.WriteLine();
-            Max(x, y);
-            
-        }
-        public static void Max(int x, int y)
-        {
-            int z;
-            z = (x < y)? y: x;
-            Console.WriteLine($"The biggest number is {z}");
-            
-        }
-    }
-}
+//namespace ConsoleApplication1
+//{
+//    class Program
+//    {
+//        static void Main()
+//        {
+//            Console.WriteLine("Enter the first number");
+//            var x = Convert.ToInt32(Console.ReadLine());
+//            Console.WriteLine($"First number is {x}");
+//            Console.WriteLine("Enter the second number");
+//            var y = Convert.ToInt32(Console.ReadLine());
+//            Console.WriteLine($"Second number is {y}");
+//            Console.WriteLine();
+//            Max(x, y);
+
+//        }
+//        public static void Max(int x, int y)
+//        {
+//            int z;
+//            z = (x < y)? y: x;
+//            Console.WriteLine($"The biggest number is {z}");
+
+//        }
+//    }
+//}
+
+//using System;
+
+//namespace IEnumerable
+//{
+//    class Program
+//    {
+//        public static void Main()
+//        {
+//            int Clr = (int)Color.Black;
+//            Console.WriteLine(Clr);
+//        }
+//        public enum Color
+//        {
+//            White,
+//            Red,
+//            Green,
+//            Blue,
+//            Orange,
+//            Black
+//        }
+
+//    }
+   
+    
+//}
