@@ -129,13 +129,39 @@ namespace EXA
             }
         }
     }
-    class Week : IEnumerable
+
+    class Week : IEnumerator, IEnumerable
     {
         string[] days = {"Monday", "Tuesday", "Wednesday", "Thursday",
                          "Friday", "Saturday", "Sunday"};
+        int position = -1;
+
         public IEnumerator GetEnumerator()
         {
-            return days.GetEnumerator();
+            return this;
+        }
+
+        public object Current
+        {
+            get
+            {
+                
+                return days[position];
+            }
+        }
+        public bool MoveNext()
+        {
+            if (position == days.Length - 1)
+            {
+                Reset();
+                return false;
+            }
+            position++;
+            return true;
+        }
+        public void Reset()
+        {
+            position = - 1;
         }
     }
 }
