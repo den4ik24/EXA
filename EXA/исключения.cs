@@ -22,9 +22,10 @@
 //            }
 //            Console.Read();
 //        }
-
-//        private void ReadData (string pathname)
+        
+//        private void ReadData(string pathname)
 //        {
+
 //            FileStream fs = null;
 //            try
 //            {

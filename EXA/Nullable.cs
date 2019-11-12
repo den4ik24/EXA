@@ -10,7 +10,7 @@
 //            int? age = 45;//nullable от int
 //            int x = age ?? 10; // если age = null, то возвращается 10, если != то 45;
 //            //System.Nullable<int> age2 = 45;
-            
+
 //            double? d = null;
 //            d = 3.14;
 
@@ -39,4 +39,61 @@
 //    {
 //        public string Name { get; set; }
 //    }
+//}
+
+
+//using System;
+//namespace EXA
+//{
+//    public class Null_совместимые_значимые_типы
+//    {
+//        public static void Main()
+//        {
+//            int? x = 5;
+//            int? y = null;
+//            x.GetHashCode();
+
+//            Console.WriteLine($"x: HasValue = {x.HasValue}, Value = {x.Value}");
+//            Console.WriteLine($"y: HasValue = {y.HasValue}, Value = {y.GetValueOrDefault()}");
+//        }
+
+//        public override int GetHashCode()
+//        {
+//            return base.GetHashCode();
+//        }
+//    }
+//}
+
+
+
+//private static void ConversionsAndCasting()
+//{
+//    //неявное преобразование из типа int в Nullable<int>
+//􏰒􏰒 􏱣􏰢􏰱􏰯􏰔􏰦􏰢 􏰜􏰲􏰢􏰦􏰧􏰲􏰕􏰮􏰦􏰯􏰕􏰔􏰗􏰢 􏰗􏰮 􏰛􏰗􏰜􏰕 􏰩􏰌􏰈􏱝􏱞 􏰯 􏰝􏰁􏰃􏰃􏰋􏰂􏰃􏰍􏱇􏰩􏰌􏰈􏱝􏱞􏱊 Int32? a = 5;
+//    //неявное преобразование из "null" в Nullable<int>
+//􏰒􏰒 􏱣􏰢􏰱􏰯􏰔􏰦􏰢 􏰜􏰲􏰢􏰦􏰧􏰲􏰕􏰮􏰦􏰯􏰕􏰔􏰗􏰢 􏰗􏰮 􏲂􏰌􏰁􏰃􏰃􏲂 􏰯 􏰝􏰁􏰃􏰃􏰋􏰂􏰃􏰍􏱇􏰩􏰌􏰈􏱝􏱞􏱊 Int32? b = null;
+//    //явное преобразование Nullable<int> в int
+//􏰒􏰒 􏲃􏰯􏰔􏰦􏰢 􏰜􏰲􏰢􏰦􏰧􏰲􏰕􏰮􏰦􏰯􏰕􏰔􏰗􏰢 􏰝􏰁􏰃􏰃􏰋􏰂􏰃􏰍􏱇􏰩􏰌􏰈􏱝􏱞􏱊 􏰯 􏰩􏰌􏰈􏱝􏱞 Int32 c = (Int32) a;
+//    //прямое и обратое приведение примитивного типа в null-совместимый тип
+//    Double? d = 5; //int->Double? (d содержит 5.0 в виде double)
+//    Double? e=b; //int->Double? (e содержит null)
+//}
+
+
+//private static void Operators()
+//{
+//    Int32? a = 5;
+//    Int32? b = null;
+//    //Унарные операторы (+ ++ - -- ! ~)
+//􏰒􏰒 􏲅􏰔􏰕􏰲􏰔􏰙􏰢 􏰦􏰜􏰢􏰲􏰕􏰛􏰦􏰲􏰙 􏰹􏱯 􏱯􏱯 􏱳 􏱳􏱳 􏱃 􏲣􏰺 a++; // a = 6
+//         b = -b; // b = null
+//    //Бинарные операторы (+ - * / % & | ^ << >>)
+//􏰒􏰒 􏱎􏰗􏰔􏰕􏰲􏰔􏰙􏰢 􏰦􏰜􏰢􏰲􏰕􏰛􏰦􏰲􏰙 􏰹􏱯 􏱳 􏱽 􏰒 􏲥 􏱹 􏲄 􏲟 􏱇􏱇 􏱊􏱊􏰺 a = a + 3; // a = 9
+//             b = b * 3; // b = null;
+//    //Операторы равенства(== !=)
+//        if (a == null) { /* нет */} else { /* да */}
+//􏰒􏰒 􏰡􏰜􏰢􏰲􏰕􏰛􏰦􏰲􏰙 􏰲􏰕􏰯􏰢􏰔􏰰􏰛􏰯􏰕 􏰹􏱂􏱂 􏱃􏱂􏰺    if (b == null) { /* да */} else { /* нет */}
+//        if (a != b) { /* да */} else { /* нет */}
+//    //Операторы сравнения(<> <= >=)
+//        if (a < b) { /* нет */} else { /* да */}􏰒􏱽 􏰔􏰢􏰛 􏱽􏰒 􏰠􏰑 􏰒􏱽 􏰔􏰢􏰛 􏱽􏰒 􏰠 􏰍􏰃􏰇􏰍 􏰑 􏰒􏱽 􏰥􏰕 􏱽􏰒 􏰠
 //}
