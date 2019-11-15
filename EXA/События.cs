@@ -1,63 +1,63 @@
-﻿//using System;
+﻿using System;
 
-//namespace ConsoleApplication1
-//{
-//    class Program
-//    {
-//        static void Main()
-//        {
-//            Counter c = new Counter(new Random().Next(10));
-//            c.ThresholdReached += c_ThresholdReached;
+namespace EXA
+{
+    class Counter
+    {
+        public static void RunningEvent()
+        {
+            Counter c = new Counter(new Random().Next(10));
+            c.ThresholdReached += c_ThresholdReached;
 
-//            Console.WriteLine("press 'a' key to increase total");
-//            while (Console.ReadKey(true).KeyChar == 'a')
-//            {
-//                Console.WriteLine("adding one");
-//                c.Add(1);
-//            }
-//        }
+            Console.WriteLine("press 'a' key to increase total");
+            while (Console.ReadKey(true).KeyChar == 'a')
+            {
+                Console.WriteLine("adding one");
+                c.Add(1);
+            }
 
-//        static void c_ThresholdReached(object sender, ThresholdReachedEventArgs e)
-//        {
-//            Console.WriteLine("The threshold of {0} was reached at {1}.", e.Threshold, e.TimeReached);
-//            Environment.Exit(0);
-//        }
-//    }
+        }
+            static void c_ThresholdReached(object sender, ThresholdReachedEventArgs e)
+            {
+                Console.WriteLine("The threshold of {0} was reached at {1}.", e.Threshold, e.TimeReached);
+                Environment.Exit(0);
+            }
+        private int threshold;
+        private int total;
 
-//    class Counter
-//    {
-//        private int threshold;
-//        private int total;
+        public Counter(int passedThreshold)
+        {
+            threshold = passedThreshold;
+        }
 
-//        public Counter(int passedThreshold)
-//        {
-//            threshold = passedThreshold;
-//        }
+        public void Add(int x)
+        {
+            total += x;
+            if (total >= threshold)
+            {
+                ThresholdReachedEventArgs args = new ThresholdReachedEventArgs();
+                args.Threshold = threshold;
+                args.TimeReached = DateTime.Now;
+                OnThresholdReached(args);
+            }
+        }
 
-//        public void Add(int x)
-//        {
-//            total += x;
-//            if (total >= threshold)
-//            {
-//                ThresholdReachedEventArgs args = new ThresholdReachedEventArgs();
-//                args.Threshold = threshold;
-//                args.TimeReached = DateTime.Now;
-//                OnThresholdReached(args);
-//            }
-//        }
+        protected virtual void OnThresholdReached(ThresholdReachedEventArgs e)
+        {
+            ThresholdReached?.Invoke(this, e);
+        }
 
-//        protected virtual void OnThresholdReached(ThresholdReachedEventArgs e)
-//        {
-//            ThresholdReached?.Invoke(this, e);
-//        }
+        public event EventHandler<ThresholdReachedEventArgs> ThresholdReached;
 
-//        public event EventHandler<ThresholdReachedEventArgs> ThresholdReached;
-//    }
+        
+    }
 
-//    public class ThresholdReachedEventArgs : EventArgs
-//    {
-//        public int Threshold { get; set; }
-//        public DateTime TimeReached { get; set; }
-//    }
-//}
+    public class ThresholdReachedEventArgs : EventArgs
+    {
+        public int Threshold { get; set; }
+        public DateTime TimeReached { get; set; }
+    }
+
+    
+}
 

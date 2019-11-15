@@ -1,70 +1,59 @@
-﻿//using System;
-//namespace EXA
-//{
-//    public class Nullable
-//    {
-//        public static void Main()
-//        {
-//            string s = null;
-//            Country country = null;
-//            int? age = 45;//nullable от int
-//            int x = age ?? 10; // если age = null, то возвращается 10, если != то 45;
-//            //System.Nullable<int> age2 = 45;
+﻿using System;
+namespace EXA
+{
+    public class Nullable
+    {
+        public static void RunNullable1()
+        {
+            string s = null;
+            Country country = null;
+            int? age = 45;//nullable от int
+            int x = age ?? 10; // если age = null, то возвращается 10, если != то 45;
+            //System.Nullable<int> age2 = 45;
 
-//            double? d = null;
-//            d = 3.14;
+            double? d = null;
+            d = 3.14;
 
-//            // State? stateNullable = null;//nullable от State
-//            State? stateNullable = null;// new State { Name = "Narnia" };
-//            if (stateNullable.HasValue == true)
-//            {
-//                State state = stateNullable.Value;
-//                Console.WriteLine(state.Name);
-//            }
-//            else
-//            {
-//                Console.WriteLine("stateNullable is equal to null");
-//            }
-//            //State state = stateNullable.Value;
-//            //Console.WriteLine(state.Name);
+            // State? stateNullable = null;//nullable от State
+            State? stateNullable = null;// new State { Name = "Narnia" };
+            if (stateNullable.HasValue == true)
+            {
+                State state = stateNullable.Value;
+                Console.WriteLine(state.Name);
+            }
+            else
+            {
+                Console.WriteLine("stateNullable is equal to null");
+            }
+            //State state = stateNullable.Value;
+            //Console.WriteLine(state.Name);
+        }
 
-//        }
-//    }
+        public static void RunNullable2()
+        {
+            int? x = 5;
+            int? y = null;
+            x.GetHashCode();
 
-//    struct State
-//    {
-//        public string Name { get; set; }
-//    }
-//    class Country
-//    {
-//        public string Name { get; set; }
-//    }
-//}
+            Console.WriteLine($"x: HasValue = {x.HasValue}, Value = {x.Value}");
+            Console.WriteLine($"y: HasValue = {y.HasValue}, Value = {y.GetValueOrDefault()}");
+        }
 
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+    }
 
-//using System;
-//namespace EXA
-//{
-//    public class Null_совместимые_значимые_типы
-//    {
-//        public static void Main()
-//        {
-//            int? x = 5;
-//            int? y = null;
-//            x.GetHashCode();
-
-//            Console.WriteLine($"x: HasValue = {x.HasValue}, Value = {x.Value}");
-//            Console.WriteLine($"y: HasValue = {y.HasValue}, Value = {y.GetValueOrDefault()}");
-//        }
-
-//        public override int GetHashCode()
-//        {
-//            return base.GetHashCode();
-//        }
-//    }
-//}
-
-
+    struct State
+    {
+        public string Name { get; set; }
+    }
+    class Country
+    {
+        public string Name { get; set; }
+    }
+}
 
 //private static void ConversionsAndCasting()
 //{

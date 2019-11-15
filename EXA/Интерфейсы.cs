@@ -1,125 +1,107 @@
-﻿//using System;
-//namespace EXA
-//{
-//    public class Интерфейсы
-//    {
-//        static void Main()
-//        {
-//            var b = new Base();
-//            b.Dispose();
-//            ((IDisposable)b).Dispose();
-//            Console.WriteLine("");
+﻿using System;
+namespace EXA
+{
+    class Interfaces
+    {
+        public static void RunInterfaces1()
+        {
+            var b = new Base();
+            b.Dispose();
+            ((IDisposable)b).Dispose();
+            Console.WriteLine("");
 
-//            var d = new Derived();
-//            d.Dispose();
-//            ((IDisposable)d).Dispose();
-//            Console.WriteLine();
+            var d = new Derived();
+            d.Dispose();
+            ((IDisposable)d).Dispose();
+            Console.WriteLine();
 
-//            b = new Derived();
-//            b.Dispose();
-//            ((IDisposable)b).Dispose();
-//            ((Base)b).Dispose();
+            b = new Derived();
+            b.Dispose();
+            ((IDisposable)b).Dispose();
+            b.Dispose();
+        }
 
-//        }
-//    }
-//    public class Base : IDisposable
-//    {
-//        public virtual void Dispose()
-//        {
-//            Console.WriteLine("Base's dispose");
-//        }
-//    }
-//    public class Derived : Base
-//    {
-//        public override void Dispose()
-//        {
-//            Console.WriteLine("Derived's dispose");
-//            //base.Dispose();
-//        }
-//    }
-//}
+        public static void RunInterfaces2()
+        {
+            Slave slave = new Slave();
+            // slave.P
+            IMaster master = slave;
+            master.Power();
+            //master.Freedom();
+            ((IMaster)slave).Freedom();
+        }
 
-////343
-//using System;
-//namespace EXA
-//{
-//    public class Интерфейсы
-//    {
-//        static void Main()
-//        {
-//            var n = new Number();
+        public static void RunInterfaces3()
+        {
+            var n = new Number();
 
-//            IComparable<int> cInt32 = n;
-//            int result = cInt32.CompareTo(5);
+            IComparable<int> cInt32 = n;
+            int result = cInt32.CompareTo(5);
 
-//            IComparable<string> cString = n;
-//            result = cString.CompareTo("5");
-//        }
-//    }
-
-//    public sealed class Number : IComparable<int>, IComparable<string>
-//    {
-//        private int m_val = 5;
-//        public int CompareTo(int n)
-//        {
-//            return m_val.CompareTo(n);
-//        }
-//        public int CompareTo(string s)
-//        {
-//            return m_val.CompareTo(s);
-//        }
-//    }
-//}
+            IComparable<string> cString = n;
+            result = cString.CompareTo("5");
+        }
+    }
+    public class Base : IDisposable
+    {
+        public virtual void Dispose()
+        {
+            Console.WriteLine("Base's dispose");
+        }
+    }
+    public class Derived : Base
+    {
+        public override void Dispose()
+        {
+            Console.WriteLine("Derived's dispose");
+            //base.Dispose();
+        }
+    }
 
 
-//using System;
-//namespace EXA
-//{
-//    public class Интерфейсы
-//    {
-//        static void Main()
-//        {
-//            Slave slave = new Slave();
-//            // slave.P
-//            IMaster master = slave;
-//            master.Power();
-//            //master.Freedom();
-//            ((IMaster)slave).Freedom();
-//        }
+    public interface IMaster
+    {
+        public void Power();
+        public void Freedom()
+        {
+            Console.WriteLine("A-A-A-A-a");
+        }
+    }
 
-//    }
+    public class Slave : IMaster
+    {
+        //public void Power()
+        // {
+        //     Console.WriteLine("I am a power");
+        //}
 
-//    public interface IMaster
-//    {
-//        public void Power();
-//        public void Freedom()
-//        {
-//            Console.WriteLine("A-A-A-A-a");
-//        }
-//    }
+        //явная релизация интерфейсного метода
+        //(Explicit Interface Method Implementation, EIMI
+        //при явной реализации интерфейсного метода в C#
+        //нельзя указывать уровень доступа (открытый или закрытый)
 
-//    public class Slave : IMaster
-//    {
-//        //public void Power()
-//        // {
-//        //     Console.WriteLine("I am a power");
-//        //}
+        void IMaster.Power()
+        {
+            Console.WriteLine("-.-");
+        }
 
-//        //явная релизация интерфейсного метода
-//        //(Explicit Interface Method Implementation, EIMI
-//        //при явной реализации интерфейсного метода в C#
-//        //нельзя указывать уровень доступа (открытый или закрытый)
+        void IMaster.Freedom()
+        {
+            Console.WriteLine("FREEDOM !");
+        }
+    }
 
-//        void IMaster.Power()
-//        {
-//            Console.WriteLine("-.-");
-//        }
 
-//        void IMaster.Freedom()
-//        {
-//            Console.WriteLine("FREEDOM !");
-//        }
-
-//    }
-
-//}
+    public sealed class Number : IComparable<int>, IComparable<string>
+    {
+        private int m_val = 5;
+        public int CompareTo(int n)
+        {
+            return m_val.CompareTo(n);
+        }
+        public int CompareTo(string s)
+        {
+            return m_val.CompareTo(s);
+        }
+    }
+}
