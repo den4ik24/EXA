@@ -12,7 +12,7 @@ namespace EXA
 {
     public static class ParallelExample
     {
-        public static void ParallelExample1()
+        public static void RunParallelExample1()
         {
             long totalSize = 0;
 
@@ -40,7 +40,7 @@ namespace EXA
             Console.WriteLine("{0:N0} files, {1:N0} bytes", files.Length, totalSize);
         }
 
-        public static void ParallelExample2()
+        public static void RunParallelExample2()
         {
             Thread.CurrentThread.Name = "Main";
             Task taskA = Task.Run(() => Console.WriteLine("Hello from taskA."));
@@ -48,7 +48,7 @@ namespace EXA
             taskA.Wait();
         }
 
-        public static void ParallelExample3()
+        public static void RunParallelExample3()
         {
             var displayData = Task.Factory.StartNew(() =>
             {
@@ -80,7 +80,7 @@ namespace EXA
             Console.WriteLine(displayData.Result);
         }
 
-        public static void ParallelExample4()
+        public static void RunParallelExample4()
         {
             var parent = Task.Factory.StartNew(() =>
             {
@@ -102,7 +102,7 @@ namespace EXA
             Console.WriteLine("Parent task completed.");
         }
 
-        public static void ParallelExample5()
+        public static void RunParallelExample5()
         {
             List<Task<int>> tasks = new List<Task<int>>();
             for (int ctr = 1; ctr <= 10; ctr++)
@@ -126,7 +126,7 @@ namespace EXA
             Console.WriteLine(sum);
         }
 
-        public static void ParallelExample6()
+        public static void RunParallelExample6()
         {
             var t = Task.Run(() =>
             {
@@ -156,7 +156,7 @@ namespace EXA
             });
         }
 
-        public static void ParallelExample7()
+        public static void RunParallelExample7()
         {
             var parent = Task.Factory.StartNew(() =>
             {
@@ -174,7 +174,7 @@ namespace EXA
             Console.WriteLine("Outer has completed.");
         }
 
-        public static void ParallelExample8()
+        public static void RunParallelExample8()
         {
             var outer = Task<int>.Factory.StartNew(() =>
             {
@@ -195,7 +195,7 @@ namespace EXA
             Console.WriteLine("Outer has returned {0}.", outer.Result);
         }
 
-        public static void ParallelExample9()
+        public static void RunParallelExample9()
         {
             var parent = Task.Factory.StartNew(() =>
             {
@@ -214,7 +214,7 @@ namespace EXA
         ////Вы также можете использовать метод AggregateException.Flatten, чтобы повторно
         ////    создать в одном экземпляре AggregateException все вложенные исключения,
         ////    полученные в нескольких экземплярах AggregateException от нескольких задач
-        public static void ParallelExample10()
+        public static void RunParallelExample10()
         {
             try
             {
@@ -310,7 +310,7 @@ namespace EXA
         #endregion
 
         #region Main
-        public static void ParallelExample11()
+        public static void RunParallelExample11()
         {
             // Set up matrices. Use small values to better view 
             // result matrix. Increase the counts to see greater 
@@ -392,7 +392,314 @@ namespace EXA
         }
         #endregion
 
+        public static void RunParallelExample12()
+        {
+            FactorialAsync12();
+            Console.WriteLine("Введите число: ");
+            int n = int.Parse(Console.ReadLine());
+            Console.WriteLine($"квадрат числа равен {n * n}");
+            Console.WriteLine("Конец метода Main");
+            Console.Read();
+        }
+
+        static void Factorial12()
+        {
+            int result = 1;
+            for (int i = 1; i <= 6; i++)
+            {
+                result *= i;
+            }
+            Thread.Sleep(8000);
+            Console.WriteLine($"Факториал равен{result}");
+        }
+        static async void FactorialAsync12()
+        {
+            Console.WriteLine("начало метода FactorialAsync");
+            await Task.Run(Factorial12);
+            Console.WriteLine("Конец метода FactorialAsync");
+        }
+
+
+        public static void RunParallelExample13()
+        {
+            ReadWriteAsync();
+
+            Console.WriteLine("Некоторая работа");
+
+        }
+        static async void ReadWriteAsync()
+        {
+            string s = "Hello world! One step at a time";
+
+            // hello.txt - файл, который будет записываться и считываться
+            using (StreamWriter writer = new StreamWriter("hello1.txt", false))
+            {
+                await writer.WriteLineAsync(s);  // асинхронная запись в файл
+            }
+            using StreamReader reader = new StreamReader("hello1.txt");
+            string result = await reader.ReadToEndAsync();  // асинхронное чтение из файла
+            Console.WriteLine(result);
+        }
+
+
+        public static void RunParallelExample14()
+        {
+            FactorialAsync14(5);
+            FactorialAsync14(6);
+            Console.WriteLine("Некоторая работа");
+            Console.Read();
+        }
+        static void Factorial14(int n)
+        {
+            int result = 1;
+            for (int i = 1; i <= n; i++)
+            {
+                result *= i;
+            }
+            Thread.Sleep(3000);
+            Console.WriteLine($"Факториал равен {result}");
+        }
+        // определение асинхронного метода
+        static async void FactorialAsync14(int n)
+        {
+            await Task.Run(() => Factorial14(n));
+        }
+
+
+        public static void RunParallelExample15()
+        {
+            FactorialAsync15(5);
+            FactorialAsync15(6);
+            Console.Read();
+        }
+        static int Factorial15(int n)
+        {
+            int result = 1;
+            for (int i = 1; i <= n; i++)
+            {
+                result *= i;
+            }
+            return result;
+        }
+        // определение асинхронного метода
+        static async void FactorialAsync15(int n)
+        {
+            int x = await Task.Run(() => Factorial15(n));
+            Console.WriteLine($"Факториал равен {x}");
+        }
+
+
+        public static void RunParallelExample16()
+        {
+            FactorialAsync(5);
+            FactorialAsync(6);
+            Console.WriteLine("Некоторая работа");
+            Console.Read();
+        }
+        static void Factorial16(int n)
+        {
+            int result = 1;
+            for (int i = 1; i <= n; i++)
+            {
+                result *= i;
+            }
+            Thread.Sleep(5000);
+            Console.WriteLine($"Факториал равен {result}");
+        }
+        // определение асинхронного метода
+        static async void FactorialAsync(int n)
+        {
+            await Task.Run(() => Factorial16(n));
+        }
+
+
+        public static void RunParallelExample17()
+        {
+            var task = Task.Factory.StartNew(Work);
+            task.ContinueWith(t => Console.WriteLine($"Задача выполнена. Результат: {task.Result} "));
+            Console.WriteLine("Основной поток завершен.");
+            Console.ReadLine();
+            A();
+            B();
+        }
+        static bool Work()
+        {
+            Console.WriteLine("Выполнение задачи...");
+            Thread.Sleep(3000);
+            return true;
+        }
+
+        static Task A()
+        {
+            return Task.Run(() => Work());
+        }
+
+        static async Task B()
+        {
+            await Task.Run(Work);
+        }
+
+
+        public static void RunParallelCancellationToken1()
+        {
+            CancellationTokenSource cancelTokenSource1 = new CancellationTokenSource();
+            CancellationToken token1 = cancelTokenSource1.Token;
+            int number = 6;
+
+            Task task1 = new Task(() =>
+            {
+                int result = 1;
+                for (int i = 1; i <= number; i++)
+                {
+                    if (token1.IsCancellationRequested)
+                    {
+                        Console.WriteLine("Операция прервана");
+                        return;
+                    }
+
+                    result *= i;
+                    Console.WriteLine($"Факториал числа {i} равен {result}");
+                    Thread.Sleep(5000);
+                }
+            });
+            task1.Start();
+
+            Console.WriteLine("Введите Y для отмены операции или другой символ для ее продолжения:");
+            string s = Console.ReadLine();
+            if (s == "Y")
+                cancelTokenSource1.Cancel();
+
+            Console.Read();
+        }
+
+
+        public static void RunParallelCancellationToken2()
+        {
+            CancellationTokenSource cancelTokenSource2 = new CancellationTokenSource();
+            CancellationToken token2 = cancelTokenSource2.Token;
+
+            Task task2 = new Task(() => FactorialF(5, token2));
+            task2.Start();
+
+            Console.WriteLine("Введите Y для отмены операции или любой другой символ для ее продолжения:");
+            string s = Console.ReadLine();
+            if (s == "Y")
+                cancelTokenSource2.Cancel();
+
+            Console.ReadLine();
+        }
+        static void FactorialF(int x, CancellationToken token2)
+        {
+            int result = 1;
+            for (int i = 1; i <= x; i++)
+            {
+                if (token2.IsCancellationRequested)
+                {
+                    Console.WriteLine("Операция прервана токеном");
+                    return;
+                }
+
+                result *= i;
+                Console.WriteLine($"Факториал числа {i} равен {result}");
+                Thread.Sleep(5000);
+            }
+        }
+
+
+        public static void RunParallelCancellationToken3()
+        {
+            CancellationTokenSource cancelTokenSource3 = new CancellationTokenSource();
+            CancellationToken token3 = cancelTokenSource3.Token;
+
+            new Task(() =>
+            {
+                Thread.Sleep(400);
+                cancelTokenSource3.Cancel();
+            }).Start();
+
+            try
+            {
+                Parallel.ForEach(new List<int> { 1, 2, 3, 4, 5, 6, 7, 8 },
+                                        new ParallelOptions { CancellationToken = token3 }, Factorial20);
+                // или так
+                //Parallel.For(1, 8, new ParallelOptions { CancellationToken = token3 }, Factorial20);
+            }
+            catch (OperationCanceledException ex)
+            {
+                Console.WriteLine("Операция прервана");
+            }
+            finally
+            {
+                cancelTokenSource3.Dispose();
+            }
+
+            Console.ReadLine();
+        }
+        static void Factorial20(int x)
+        {
+            int result = 1;
+
+            for (int i = 1; i <= x; i++)
+            {
+                result *= i;
+            }
+            Console.WriteLine($"Факториал числа {x} равен {result}");
+            Thread.Sleep(3000);
+        }
+
+
+        public static void RunParallelTaskCompletionSource()
+        {
+            TaskCompletionSource<int> tcs1 = new TaskCompletionSource<int>();
+            Task<int> t1 = tcs1.Task;
+
+            // Start a background task that will complete tcs1.Task
+            Task.Factory.StartNew(() =>
+            {
+                Thread.Sleep(1000);
+                tcs1.SetResult(15);
+            });
+
+            // The attempt to get the result of t1 blocks the current thread
+            //until the completion source gets signaled.
+            // It should be a wait of ~1000 ms.
+            Stopwatch sw = Stopwatch.StartNew();
+            int result = t1.Result;
+            sw.Stop();
+
+            Console.WriteLine($"(ElapsedTime={sw.ElapsedMilliseconds}): t1.Result={result} (expected 15) ");
+
+
+            // Alternatively, an exception can be manually set on a TaskCompletionSource.Task
+            TaskCompletionSource<int> tcs2 = new TaskCompletionSource<int>();
+            Task<int> t2 = tcs2.Task;
+
+            // Start a background Task that will complete tcs2.Task with an exception
+            Task.Factory.StartNew(() =>
+            {
+                Thread.Sleep(1000);
+                tcs2.SetException(new InvalidOperationException("SIMULATED EXCEPTION"));
+            });
+
+            // The attempt to get the result of t2 blocks the current thread
+            //until the completion source gets signaled with either a result or an exception.
+            // In either case it should be a wait of ~1000 ms.
+            sw = Stopwatch.StartNew();
+            try
+            {
+                result = t2.Result;
+
+                Console.WriteLine("t2.Result succeeded. THIS WAS NOT EXPECTED.");
+            }
+            catch (AggregateException e)
+            {
+                Console.Write($"(ElapsedTime={sw.ElapsedMilliseconds}");
+                Console.WriteLine("The following exceptions have been thrown by t2.Result: (THIS WAS EXPECTED)");
+                for (int j = 0; j < e.InnerExceptions.Count; j++)
+                {
+                    Console.WriteLine($"\n-------------------------------------------------\n{e.InnerExceptions[j]}");
+                }
+            }
+        }
     }
-
-
 }
