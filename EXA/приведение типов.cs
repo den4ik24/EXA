@@ -12,7 +12,7 @@ namespace EXA
 
             PersonP person = new PersonP();
 
-            //1
+            //1 (никогда не генерирует исключения{только null})
             Employee employee = person as Employee;
             if (employee == null)
             {
@@ -34,7 +34,7 @@ namespace EXA
                 Console.WriteLine(ex.Message);
             }
 
-            //3
+            //3 (true/false)
             if (person is Employee)
             {
                 employee = (Employee)person;

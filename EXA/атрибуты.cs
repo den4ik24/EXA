@@ -5,7 +5,7 @@ using System.Reflection;
 
 namespace EXA
 {
-    public class Attributes
+    public static class Attributes
     {
 
         public static void RunAttributes1()
@@ -35,7 +35,7 @@ namespace EXA
         {
             Type t = typeof(User);
             object[] attrs = t.GetCustomAttributes(false);
-            foreach (AgeValidation2Attribute attr in attrs)
+            foreach (AgeValidation2 attr in attrs)
             {
                 if (user.AgeUser >= attr.Age) return true;
                 return false;
@@ -48,22 +48,25 @@ namespace EXA
 
             //Type type = typeof(Dog);
             object[] obj = dog.GetType().GetCustomAttributes(true);
-            foreach (AgeValidation2Attribute atr in obj)
+            foreach (AgeValidation2 atr in obj)
             {
                 if (dog.AgeDog >= atr.Age) return true;
                 return false;
             }
             return true;
+
         }
     }
-    public class AgeValidation2Attribute : Attribute
+
+
+    public class AgeValidation2 : Attribute
     {
         public int Age { get; set; }
 
-        public AgeValidation2Attribute()
+        public AgeValidation2()
         { }
 
-        public AgeValidation2Attribute(int age)
+        public AgeValidation2(int age)
         {
             Age = age;
         }

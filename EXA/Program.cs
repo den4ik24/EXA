@@ -111,6 +111,7 @@ namespace EXA
 
             //#region Примеры
             //Example.RunExample1();
+            //All.RunAll();
             //#endregion
 
         }

@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+
 namespace EXA
 {
     class Interfaces
@@ -19,12 +22,15 @@ namespace EXA
             b.Dispose();
             ((IDisposable)b).Dispose();
             b.Dispose();
+            IEnumerable<T>;
+                IEnumerable
         }
 
         public static void RunInterfaces2()
         {
             Slave slave = new Slave();
             // slave.P
+            slave.III();
             IMaster master = slave;
             master.Power();
             //master.Freedom();
@@ -58,7 +64,7 @@ namespace EXA
         }
     }
 
-
+     
     public interface IMaster
     {
         public void Power();
@@ -88,6 +94,11 @@ namespace EXA
         void IMaster.Freedom()
         {
             Console.WriteLine("FREEDOM !");
+        }
+
+        public void III()
+        {
+            ((IMaster)this).Freedom();
         }
     }
 
