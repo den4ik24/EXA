@@ -22,8 +22,8 @@ namespace EXA
             b.Dispose();
             ((IDisposable)b).Dispose();
             b.Dispose();
-            IEnumerable<T>;
-                IEnumerable
+            //IEnumerable<T>;
+            //    IEnumerable
         }
 
         public static void RunInterfaces2()

@@ -1,13 +1,12 @@
 ﻿using System;
-using System.Threading.Tasks;
 
 namespace EXA
 {
-    public static class Parameters : TaskScheduler
+    public static class Parameters
     {
         static int OptionalParam(int x, int y, int z = 5, int s = 4)
+        // z и s необязательные именованные параметры
 
-        // z и s необязательные именованные параметры 
         {
             return x + y + z + s;
 

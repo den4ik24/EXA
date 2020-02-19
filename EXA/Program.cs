@@ -11,6 +11,26 @@ namespace EXA
             //Counter.RunningEvent2();
             //#endregion
 
+            //#region Полиморфизм (New/Override)
+            //NewOverride.RunNewOverride();
+            //#endregion
+
+            #region Приведение типов
+            TypeСonversions.RunTypeСonversions();
+            #endregion
+
+            //#region Переопределение_HashCode & Equals
+            //HashCodeEquals.RunHashCodeEquals();
+            //#endregion
+
+            //#region Методы расширения
+            //Extensions.RunExtensions();
+            //#endregion
+
+            //#region Параметры
+            //Parameters.RunParameters();
+            //#endregion
+
             //#region Сериализация
             //Serialization.RunningSerialization();
             //#endregion
@@ -19,16 +39,8 @@ namespace EXA
             //Properties.RunProperties();
             //#endregion
 
-            //#region Приведение типов
-            //TypeСonversions.RunTypeСonversions();
-            //#endregion
-
             //#region Потоки
             //Threadings.RunThreadings();
-            //#endregion
-
-            //#region Параметры
-            //Parameters.RunParameters();
             //#endregion
 
             //#region Отражения
@@ -41,10 +53,6 @@ namespace EXA
             //#region Обобщения
             //Generics.RunGenerics1();
             //Generics.RunGenerics2();
-            //#endregion
-
-            //#region Методы расширения
-            //Extensions.RunExtensions();
             //#endregion
 
             //#region Массивы
@@ -85,7 +93,7 @@ namespace EXA
             //Nullable.RunNullable2();
             //#endregion
 
-            #region Параллелизм
+            //#region Параллелизм
             //ParallelExample.RunParallelExample1();
             //ParallelExample.RunParallelExample2();
             //ParallelExample.RunParallelExample3();
@@ -107,11 +115,10 @@ namespace EXA
             //ParallelExample.RunParallelCancellationToken2();
             //ParallelExample.RunParallelCancellationToken3();
             //ParallelExample.RunParallelTaskCompletionSource();
-            #endregion
+            //#endregion
 
             //#region Примеры
             //Example.RunExample1();
-            //All.RunAll();
             //#endregion
 
         }
